@@ -1,0 +1,13 @@
+body {
+    text-align: center;
+    font-style: normal;
+     background-image: url("jojo.jpg");
+    background-repeat: no-repeat;
+}
+table.center{
+   margin-left: auto;
+   margin-right: auto;
+   color:red;
+   font-size:13px;
+   font-family:Arial;
+}
