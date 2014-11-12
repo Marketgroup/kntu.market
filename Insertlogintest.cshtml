@@ -17,7 +17,7 @@
                 "VALUES (@0, @1, @2)";
           db.Execute(insertQuery, username, password, email);
           // Display the page that lists logins.
-          Response.Redirect("~/login");
+          Response.Redirect("~/listlogin");
         }
    }
 }
@@ -28,16 +28,16 @@
     <head>
        <title>Add Login</title>
  <style type="text/css">
-    label {float:left; width: 8em; text-align: right;
-           margin-right: 0.5em;}
-    fieldset {padding: 1em; border: 1px solid; width: 50em;}
-    legend {padding: 2px 4px; border: 1px solid; font-weight:bold;}
-    .validation-summary-errors {font-weight:bold; color:red;
-           font-size: 11pt;}
+     h1{color: Purple;}
+    label{float:left; width: 8em; text-align: right; margin-right: 0.5em;}
+    fieldset{padding: 1em; border: 1px solid; width: 30em; color:blue;}
+    legend{padding: 2px 4px; border: 1px solid; font-weight:bold;color: #3cdbc6;}
+    .validation-summary-errors{font-weight:bold; color:red; font-size: 11pt;}
+    input{color: #5091b5}
  </style>
 </head>
 <body>
- <h1>Add New Login</h1>
+ <h1>Welcom to Register Page</h1>
 
  @Html.ValidationSummary("Errors with your submission:")
 
@@ -46,15 +46,15 @@
      <legend>Add Login</legend>
      <div>
        <label>UserName:</label>
-       <input name="username" type="text" size="50" value="@username" />
+       <input name="username" type="text" size="20" value="@username" />
      </div>
      <div>
        <label>PassWord:</label>
-       <input name="password" type="text" size="50" value="@password" />
+       <input name="password" type="text"  size="20" value="@password" />
      </div>
      <div>
        <label>Email:</label>
-       <input name="email" type="text" size="50" value="@email" />
+       <input name="email" type="text"  size="20" value="@email" />
      </div>
      <div>
        <label>&nbsp;</label>
