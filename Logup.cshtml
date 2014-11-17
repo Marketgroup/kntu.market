@@ -1,0 +1,99 @@
+@{
+   Validation.RequireField("username","User Name is required."); 
+   Validation.RequireField("password","Password is required.");
+   Validation.RequireField("email","email is required.");
+
+   var db = Database.Open("Empty Site");
+   var username =Request.Form["username"];
+   var password = Request.Form["password"];
+   var email = Request.Form["email"];
+   
+   if(IsPost && Validation.IsValid()){
+       // Define the insert query.The values to assign to the
+       // colums in the Login table are defined as parameters
+       // with the VALUES keyword.
+       if(ModelState.IsValid) {
+          var insertQuery = "INSERT INTO login (username, password, email) " +
+                "VALUES (@0, @1, @2)";
+          db.Execute(insertQuery, username, password, email);
+          // Display the page that lists logins.
+          Response.Redirect("~/Default");
+        }
+   }
+}
+<!DOCTYPE html>
+
+<html lang="en"> 
+  <head>
+   <style type="text/css">
+    body{ text-align:center;  vertical-align: middle; font-family: 'Times New Roman';  font-size: 18pt; background-repeat: no-repeat; background-color: #1b8677;}
+    form { margin: auto; width: 30em;}
+    h1{color: Purple;}
+    label{float:left; width: 8em; text-align: right; margin-right: 0.5em;}
+    fieldset{padding: 1em; border: 1px solid; width: 30em; color:black;}
+    legend{padding: 2px 4px; border: 1px solid; font-weight:bold;color: #3cdbc6;}
+    .validation-summary-errors{font-weight:bold; color: #323185 ; font-size: 15pt;}
+    input{color:Black; font-family:'Times New Roman'; background-color: #ddddff; font-size: 11pt; font-weight:bold;}
+    #header{ background-color: black; color: white;  text-align: center; padding: 5px; }
+    #footer { background-color:black; color:white; clear:both; text-align:center; padding:5px; }
+    </style>
+        <meta charset="utf-8" />
+        <title>LogUp</title>
+  </head>
+    <body>
+        <br/>
+       <div id="header">Welcome to Sign up Page</div> 
+        
+        <br/>
+
+<!--       
+         background-image: url("jojo.jpg"); 
+         <form method="post" action="">
+   <fieldset>
+     <legend>Sign in</legend>
+     <div>
+       <label>Username:</label>
+       <input name="username" type="text" size="50" value="@username" />
+     </div>
+     <div>
+       <label>Password:</label>
+       <input name="password" type="text" size="50" value="@password" />
+     </div>
+     <div>
+       <label>&nbsp;</label>
+       <input type="submit" value="sign in" class="submit" />
+     </div>
+   </fieldset>
+  </form>
+        -->
+        <br/>        
+         @Html.ValidationSummary("Errors with your submission:")
+        
+         <form method="post" action="">
+   <fieldset>
+     <legend>Create a New Account</legend>
+     <div>
+       <label>Username:</label>
+       <input name="username" type="text" size="50" value="@username" />
+     </div>
+     <div>
+       <label>Password:</label>
+       <input name="password" type="text" size="50" value="@password" />
+     </div>
+     <div>
+       <label>Email:</label>
+       <input name="email" type="text" size="50" value="@email" />
+     </div>
+     <div>
+       <label>&nbsp;</label>
+       <input type="submit" value="Sign up for Market" class="submit" />
+     </div>
+   </fieldset>
+  </form>
+        <br/>
+        <br/>
+        
+        <div id="footer">Market Online - Khaje Nasir Toosi Univercity (KNTU) </div>
+ </body>
+</html>
+    
