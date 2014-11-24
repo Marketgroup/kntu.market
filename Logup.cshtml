@@ -17,7 +17,7 @@
                 "VALUES (@0, @1, @2)";
           db.Execute(insertQuery, username, password, email);
           // Display the page that lists logins.
-          Response.Redirect("~/Default");
+          Response.Redirect("~/home");
         }
    }
 }
@@ -25,27 +25,24 @@
 
 <html lang="en"> 
   <head>
-   <style type="text/css">
-    body{ text-align:center;  vertical-align: middle; font-family: 'Times New Roman';  font-size: 18pt; background-repeat: no-repeat; background-color: #1b8677;}
-    form { margin: auto; width: 30em;}
-    h1{color: Purple;}
-    label{float:left; width: 8em; text-align: right; margin-right: 0.5em;}
-    fieldset{padding: 1em; border: 1px solid; width: 30em; color:black;}
-    legend{padding: 2px 4px; border: 1px solid; font-weight:bold;color: #3cdbc6;}
-    .validation-summary-errors{font-weight:bold; color: #323185 ; font-size: 15pt;}
-    input{color:Black; font-family:'Times New Roman'; background-color: #ddddff; font-size: 11pt; font-weight:bold;}
-    #header{ background-color: black; color: white;  text-align: center; padding: 5px; }
-    #footer { background-color:black; color:white; clear:both; text-align:center; padding:5px; }
-    </style>
-        <meta charset="utf-8" />
-        <title>LogUp</title>
+    <link rel="stylesheet" type="text/css" href="logup.css"/>
+    <meta charset="utf-8" />
+    <title>LogUp</title>
   </head>
-    <body>
-        <br/>
-       <div id="header">Welcome to Sign up Page</div> 
-        
-        <br/>
+  <body>        
+     
+        <div id="toplogo">
+          <div>
 
+             <a href="home.cshtml">
+                 <img src="kntu.jpg" alt="kntu" width="82" height="82">
+             </a>
+          </div>
+        </div>
+ 
+        <br/>
+       <div id="header">Welcome to Sign up Page</div>         
+        <br/>
 <!--       
          background-image: url("jojo.jpg"); 
          <form method="post" action="">
@@ -67,8 +64,7 @@
   </form>
         -->
         <br/>        
-         @Html.ValidationSummary("Errors with your submission:")
-        
+         @Html.ValidationSummary("Errors with your submission:")        
          <form method="post" action="">
    <fieldset>
      <legend>Create a New Account</legend>
@@ -78,7 +74,7 @@
      </div>
      <div>
        <label>Password:</label>
-       <input name="password" type="text" size="50" value="@password" />
+       <input name="password" type="password" size="50" value="@password" />
      </div>
      <div>
        <label>Email:</label>
@@ -92,8 +88,8 @@
   </form>
         <br/>
         <br/>
-        
-        <div id="footer">Market Online - Khaje Nasir Toosi Univercity (KNTU) </div>
+              
+  <div id="footer"> Khaje Nasir Toosi Univercity (KNTU) </div>
  </body>
 </html>
     
