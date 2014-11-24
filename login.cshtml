@@ -1,0 +1,65 @@
+﻿@{
+   
+   var username = "";
+   
+   var db = Database.Open("Empty Site");
+   var selectQueryString = "SELECT username FROM login WHERE username='@username' ";
+   
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+   <title>Login List</title>
+   <style>
+       table, th, td {
+         border: solid 1px #bbbbbb;
+         border-collapse: collapse;
+         padding: 2px;
+       }
+    </style>
+ </head>
+ <body>
+     <form method="post" action="">
+     <table class="center">
+           <tr>
+                <th colspan="2">Log in</th>
+           </tr>
+          <tr>
+              <td colspan="2">_______________________________</td>              
+          </tr>
+          <tr><td>UserName: </td>
+          <td><input type="text" name="@username"></td>
+          </tr>
+            
+          <tr><td>PassWord: </td>
+              <td><input type="password" name="psw"></td>       
+          </tr>
+          <tr>
+              
+               <td><button type="submit" style="width:140px;height:30px"><strong>Log in</strong></button></td>
+               <td><button type="button" style="width:140px;height:30px"><strong>Cancel</strong></button></td>
+          </tr>
+            
+      </table> 
+   <h1>Login List</h1>
+   <table>
+       <thead>
+           <tr>
+               
+               <th>UserName</th>
+             
+           </tr>
+       </thead>
+       <tbody>
+           @foreach(var row in db.Query(selectQueryString)){
+            <tr>
+                <td>@row.username</td>
+            </tr>
+           }
+       </tbody>
+   </table>
+         </form>
+</body>
+</html>

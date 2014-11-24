@@ -1,0 +1,60 @@
+﻿ @{
+    var uname = "";
+    var pword = "";
+    var errorMessage="";
+    uname = Request["username"];
+    pword = Request["password"];
+    var selectQueryString = "";
+    var db = Database.Open("Empty Site");
+      if(IsPost && !uname.IsEmpty())  {
+      
+
+          selectQueryString = "SELECT password FROM login WHERE username = '" + uname+"' ";
+                  
+             
+       }  else
+                 {errorMessage = "Login failed, check your credentials";}
+
+
+    
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+    <body>
+       
+       <h1>Login</h1>
+        <form method="get" action="">
+          
+          <p>
+            <label for="username">Username:</label><br/>
+            <input type="text" name="username" value="" />
+          </p>
+          <p>
+            <label for="password">Password:</label><br/>
+            <input type="password" name="password" value="" />
+          </p>   
+          <p>
+            <input type="submit" value="Submit" class="submit" formmethod="post" formaction=""/>
+          </p> 
+            @if (IsPost){ 
+                foreach(var row in db.Query(selectQueryString)){
+                if(row.password==pword){
+                    <meta HTTP-EQUIV="REFRESH" content="0;url=Error">
+                }
+               // <p>@row.username</p>
+            }
+                
+             }  
+           
+
+          
+        </form>
+        
+    </body>
+</html>
