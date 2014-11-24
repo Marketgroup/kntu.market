@@ -1,6 +1,10 @@
 ﻿@{
+   
+   var username = "";
+   
    var db = Database.Open("Empty Site");
-   var selectQueryString = "SELECT * FROM login ORDER BY username";
+   var selectQueryString = "SELECT username FROM login WHERE username='@username' ";
+   
 }
 
 <!DOCTYPE html>
@@ -17,26 +21,45 @@
     </style>
  </head>
  <body>
+     <form method="post" action="">
+     <table class="center">
+           <tr>
+                <th colspan="2">Log in</th>
+           </tr>
+          <tr>
+              <td colspan="2">_______________________________</td>              
+          </tr>
+          <tr><td>UserName: </td>
+          <td><input type="text" name="@username"></td>
+          </tr>
+            
+          <tr><td>PassWord: </td>
+              <td><input type="password" name="psw"></td>       
+          </tr>
+          <tr>
+              
+               <td><button type="submit" style="width:140px;height:30px"><strong>Log in</strong></button></td>
+               <td><button type="button" style="width:140px;height:30px"><strong>Cancel</strong></button></td>
+          </tr>
+            
+      </table> 
    <h1>Login List</h1>
    <table>
        <thead>
            <tr>
-               <th>Id</th>
+               
                <th>UserName</th>
-               <th>PassWord</th>
-       <th>email </th>
+             
            </tr>
        </thead>
        <tbody>
            @foreach(var row in db.Query(selectQueryString)){
             <tr>
-               <td>@row.id</td>
-                   <td>@row.username</td>
-                   <td>@row.password</td>
-                   <td>@row.email</td>
+                <td>@row.username</td>
             </tr>
            }
        </tbody>
    </table>
+         </form>
 </body>
 </html>
