@@ -1,20 +1,13 @@
 ﻿ @{
     var uname = "";
     var pword = "";
-    var errorMessage="";
+    var ErMemptyname = "The username field is EMPTY!";
+    var ErMemptypass = "The password field is EMPTY!";
+    var ErMwrong = " The password is WRONG!";
     uname = Request["username"];
     pword = Request["password"];
     var selectQueryString = "";
     var db = Database.Open("Empty Site");
-      if(IsPost && !uname.IsEmpty())  {
-      
-
-          selectQueryString = "SELECT password FROM login WHERE username = '" + uname+"' ";
-                  
-             
-       }  else
-                 {errorMessage = "Login failed, check your credentials";}
-
 
     
 }
@@ -30,6 +23,22 @@
        
        <h1>Login</h1>
         <form method="get" action="">
+            @if (IsPost && !uname.IsEmpty())
+            { 
+                if(IsPost && !pword.IsEmpty()){
+                selectQueryString = "SELECT password FROM login WHERE username = '" + uname+"' ";
+                foreach(var row in db.Query(selectQueryString)){
+                     if(row.password==pword){
+                         <meta HTTP-EQUIV="REFRESH" content="0;url=Error">
+                     }
+                     else 
+                     { <p>@ErMwrong</p> }
+                        // <p>@row.username</p>
+                }
+               }else{<p>@ErMemptypass</p>}
+            }
+            @if(uname.IsEmpty() && IsPost )
+            {<p>@ErMemptyname</p>}
           
           <p>
             <label for="username">Username:</label><br/>
@@ -42,15 +51,8 @@
           <p>
             <input type="submit" value="Submit" class="submit" formmethod="post" formaction=""/>
           </p> 
-            @if (IsPost){ 
-                foreach(var row in db.Query(selectQueryString)){
-                if(row.password==pword){
-                    <meta HTTP-EQUIV="REFRESH" content="0;url=Error">
-                }
-               // <p>@row.username</p>
-            }
-                
-             }  
+          
+               
            
 
           
