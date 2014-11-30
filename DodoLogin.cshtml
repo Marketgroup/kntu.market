@@ -1,4 +1,4 @@
-﻿ @{
+﻿@{
     var uname = "";
     var pword = "";
     var ErMemptyname = "The username field is EMPTY!";
@@ -20,16 +20,17 @@
         <title></title>
     </head>
     <body>
-       
+       <form method="post" id="mform">
        <h1>Login</h1>
-        <form method="get" action="">
+        
             @if (IsPost && !uname.IsEmpty())
             { 
                 if(IsPost && !pword.IsEmpty()){
                 selectQueryString = "SELECT password FROM login WHERE username = '" + uname+"' ";
                 foreach(var row in db.Query(selectQueryString)){
                      if(row.password==pword){
-                         <meta HTTP-EQUIV="REFRESH" content="0;url=Error">
+                         <meta HTTP-EQUIV="REFRESH" content="0;url=Error?username=@uname">
+                          
                      }
                      else 
                      { <p>@ErMwrong</p> }
@@ -49,7 +50,7 @@
             <input type="password" name="password" value="" />
           </p>   
           <p>
-            <input type="submit" value="Submit" class="submit" formmethod="post" formaction=""/>
+            <input type="submit" value="Submit" />
           </p> 
           
                

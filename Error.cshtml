@@ -1,5 +1,7 @@
 ﻿@{
-    
+    var yourValue = "";
+   if(Request.Form["username"] != null){ 
+      yourValue = Request.Form["username"];} 
 }
 
 <!DOCTYPE html>
@@ -11,7 +13,8 @@
     </head>
     <body>
        <form action="post">
-       <p>@WebSecurity.CurrentUserName</p>
+       <p></p>
+           <div>@Request["username"]</div>
        </form>
     </body>
 </html>
