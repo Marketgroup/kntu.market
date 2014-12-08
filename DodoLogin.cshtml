@@ -1,4 +1,5 @@
 ﻿ @{
+ 
     var uname = "";
     var pword = "";
     var errorMessage="";
@@ -6,17 +7,14 @@
     pword = Request["password"];
     var selectQueryString = "";
     var db = Database.Open("Empty Site");
+
       if(IsPost && !uname.IsEmpty())  {
       
-
           selectQueryString = "SELECT password FROM login WHERE username = '" + uname+"' ";
-                  
-             
+                               
        }  else
                  {errorMessage = "Login failed, check your credentials";}
-
-
-    
+   
 }
 
 <!DOCTYPE html>
