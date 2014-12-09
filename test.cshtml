@@ -10,30 +10,53 @@
         <title></title>
     </head>
     <body>
-        <form method="post" action="">
-   <fieldset>
-     <legend>Create a New Account</legend>
-     <div>
-       <label>Username:</label>
-       <input name="username" type="text" size="50" />
-     </div>
-     <div>
-       <label>Password:</label>
-       <input name="password" type="password" size="50"/>
-     </div>
-     <div>
-       <label>Email:</label>
-       <input name="email" type="text" size="50"  />
-     </div>
-     <div>
-       <label>&nbsp;</label>
-       <input type="submit" value="Sign up for Market" class="submit" />
-     </div>
-   </fieldset>
-  </form>
-      <script type="text/javascript">
-            var x = document.forms[0].elements[1].name;
-            document.write(x);
-        </script>  
+<ul>
+ <li onclick="this.parentNode.removeChild(this);">
+  <input type="hidden" name="ingredients[]" value="Cheese" />
+  Cheese
+ </li>
+ <li onclick="this.parentNode.removeChild(this);">
+  <input type="hidden" name="ingredients[]" value="Ham" />
+  Ham
+ </li>
+ <li onclick="this.parentNode.removeChild(this);">
+  <input type="hidden" name="ingredients[]" value="Mushrooms" />
+  Mushrooms
+ </li>
+</ul>
+<select onchange="selectIngredient(this);">
+ <option value="Cheese">Cheese</option>
+ <option value="Olives">Olives</option>
+ <option value="Pepperoni">Pepperoni</option>
+ ...
+</select>
+
+        <script type="text/javascript">
+            function selectIngredient(select)
+{
+  var option = select.options[select.selectedIndex];
+  var ul = select.parentNode.getElementsByTagName('ul')[0];
+     
+  var choices = ul.getElementsByTagName('input');
+  for (var i = 0; i < choices.length; i++)
+    if (choices[i].value == option.value)
+      return;
+     
+  var li = document.createElement('li');
+  var input = document.createElement('input');
+  var text = document.createTextNode(option.firstChild.data);
+     
+  input.type = 'hidden';
+  input.name = 'ingredients[]';
+  input.value = option.value;
+
+  li.appendChild(input);
+  li.appendChild(text);
+  li.setAttribute('onclick', 'this.parentNode.removeChild(this);');     
+    
+  ul.appendChild(li);
+}
+        </script>
+
     </body>
 </html>
