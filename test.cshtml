@@ -11,26 +11,20 @@
     </head>
     <body>
 <ul>
- <li onclick="this.parentNode.removeChild(this);">
-  <input type="hidden" name="ingredients[]" value="Cheese" />
-  Cheese
- </li>
- <li onclick="this.parentNode.removeChild(this);">
-  <input type="hidden" name="ingredients[]" value="Ham" />
-  Ham
- </li>
- <li onclick="this.parentNode.removeChild(this);">
-  <input type="hidden" name="ingredients[]" value="Mushrooms" />
-  Mushrooms
- </li>
+
 </ul>
 <select onchange="selectIngredient(this);">
- <option value="Cheese">Cheese</option>
- <option value="Olives">Olives</option>
- <option value="Pepperoni">Pepperoni</option>
+ <option value="iphone6">iphone6</option>
+ <option value="iphone6plus">iphone6plus</option>
+ <option value="Samsung Galaxy Note4">Samsung Galaxy Note4</option>
+<option value="Samsung Galaxy S5">Samsung Galaxy S5</option>
+<option value="Huawei Ascend P7">Huawei Ascend P7</option>
+<option value="LG G Flex">LG G Flex</option>
+<option value="LG G3">LG G3</option>
+<option value="HTC One M8">HTC One M8</option>
+
  ...
 </select>
-
         <script type="text/javascript">
             function selectIngredient(select)
 {
@@ -51,7 +45,7 @@
   input.value = option.value;
 
   li.appendChild(input);
-  li.appendChild(text);
+//  li.appendChild(text);
   li.setAttribute('onclick', 'this.parentNode.removeChild(this);');     
     
   ul.appendChild(li);
