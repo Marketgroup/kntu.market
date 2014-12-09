@@ -1,0 +1,50 @@
+﻿@{
+    var uname = "";
+    var pword = "";
+    var ErMemptyname = "The username field is EMPTY!";
+    var ErMemptypass = "The password field is EMPTY!";
+    var ErMwrong = " The password is WRONG!";
+    uname = Request["username"];
+    pword = Request["password"];
+    var selectQueryString = "";
+    var db = Database.Open("Empty Site");
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title></title>
+</head>
+<body>
+    <form method="post" id="mform">
+        <h1>Login</h1>
+            @if (IsPost && !uname.IsEmpty())
+                    {
+                        if(IsPost && !pword.IsEmpty()) {
+                        selectQueryString = "SELECT password FROM login WHERE username = '" + uname+"' ";
+                        foreach(var row in db.Query(selectQueryString)){
+                        if(row.password==pword){
+                        <meta HTTP-EQUIV="REFRESH" content="0;url=Error?username=@uname">
+                             }
+                        else
+                        { <p>@ErMwrong</p> }
+                            // <p>@row.username</p>
+                        }
+                } else{<p>@ErMemptypass</p>}
+            }
+            @if(uname.IsEmpty() && IsPost )
+                {<p>@ErMemptyname</p>}
+           <p>
+            <label for="username">Username:</label><br/>
+            <input type="text" name="username" value="" />
+           </p>
+           <p>
+           <label for="password">Password:</label><br/>
+           <input type="password" name="password" value="" />
+           </p>
+           <p>
+           <input type="submit" value="Submit" />
+           </p>
+</form>
+</body>
+</html>

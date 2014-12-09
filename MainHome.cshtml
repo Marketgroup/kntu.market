@@ -1,23 +1,22 @@
 ﻿@{
-
-var uname = "";
-    var pword = "";
-    var ErMemptyname = "The username field is EMPTY!";
-    var ErMemptypass = "The password field is EMPTY!";
-    var ErMwrong = " The password is WRONG!";
-    uname = Request["username"];
-    pword = Request["password"];
-    var selectQueryString = "";
-    var db = Database.Open("Empty Site");
-
+    var yourValue = "";
+   if(Request.Form["username"] != null){ 
+      yourValue = Request.Form["username"];} 
+ 
 }
+
 <!DOCTYPE html>
+
 <html lang="en">
     <head>
-        <style type="text/css">
-           body{width: 100%; background-color: #1b8677; font-family: 'Times New Roman'; background-image: url("c.jpg") ;direction: rtl;}           
-           #header{ background-color: black; color: white;  text-align: center; padding: 5px;border-radius: 5px 5px 5px 5px ;}
-           #the_footer{ background-color:black; color:white; clear:both; text-align:center; padding:5px; }
+        <style>
+             body{width: 100%; background-color: #1b8677; font-family: 'Times New Roman'; background-image: url("c.jpg") ;direction: rtl;} 
+             #header{ background-color: black; color: white;  text-align: center; padding: 5px;border-radius: 5px 5px 5px 5px ;} 
+             .user {border: 2px solid black; width: 600px; padding: 1px 1px;}
+             .sabad{border: 2px solid black; width: 600px}
+             #logo_home img{direction: ltr; width: 90px; height: 88px;}
+             #logo_home{text-decoration: none;direction: ltr; font-size: 7pt;padding-left: 1px;}
+            #the_footer{ background-color:black; color:white; clear:both; text-align:center; padding:5px; }
            h1{text-align: right; padding-right: 20px;}
            h2{text-align: right; padding-right: 20px;}
            h3{text-align: center; }
@@ -47,76 +46,23 @@ var uname = "";
            article{direction: rtl; inline-box-align: initial;}
            img{padding-right: 15px;}
            p{padding-right: 15px; padding-left: 10px;}
-            
-    form { margin: auto; width: 0em;}
-    label{float:left; width: 8em; text-align: right; margin-right: 0.5em;}
-    fieldset{direction: ltr ; padding: 1em; border: 1px solid; width: 30em; color:black;}
-    legend{padding: 2px 4px; border: 1px solid; font-weight:bold;color:black;}
-    .validation-summary-errors{font-weight:bold; color: #323185 ; font-size: 15pt;}
-    input{direction: ltr ; color:Black; font-family:'Times New Roman'; background-color: #d3d3d3; font-size: 11pt; font-weight:bold;}
-            
-            
+           
         </style>
         <meta charset="utf-8" />
-        <title>Home Page</title>
+        <title>@Request["username"] Page</title>
     </head>
-
     <body>
-      <article id="logo">        
-      <div id="header">Welcome to Home Page</div>                 
-        <div id="top_logo"> 
-         <table id="login_logo">
-          <tr>
-            <td id="login_home">
-
-            <form method="post" action="">
-                 @if (IsPost && !uname.IsEmpty())
-                    {
-                        if(IsPost && !pword.IsEmpty()) {
-                        selectQueryString = "SELECT password FROM login WHERE username = '" + uname+"' ";
-                        foreach(var row in db.Query(selectQueryString)){
-                        if(row.password==pword){
-                        <meta HTTP-EQUIV="REFRESH" content="0;url=MainHome?username=@uname">
-                             }
-            //            else
-              //          { <p>@ErMwrong</p> }
-                          
-                        }
-                } else{<p>@ErMemptypass</p>}
-            }
-            @if(uname.IsEmpty() && IsPost )
-                {<p>@ErMemptyname</p>}
-           
-            <fieldset>
-            <legend>ONLINE SHOPPING LOGIN</legend>
-            <div>
-            <label for="username">Username:</label>
-            <input name="username" type="text" size="30" value="" />
-            </div>
-            <div>
-            <label for="password">Password:</label>
-            <input name="password" type="password" size="30" value="" />
-            </div>
-            <div>
-            <label>&nbsp;</label>
-            <input type="submit" value="LOGIN" />
-            </div>
-            </fieldset>
-            </form>
-          
-            </td>
-             <td id="logo_home">
-             <a href="home.cshtml"><img src="kntu.jpg" alt="kntu" dir="ltr" ></a>
-          </td>
-          </tr>
-         </table>    
-        </div> 
-        <dialog id="idfile" >
-             <dt id="dt1"> (پروژه دانشجویی ( انسیه جهانبخش - مهرناز محمدی </dt>
-             <dt id="dt2">استاد راهنما : جناب آقای دکتر نیک انجام   </dt>
-        </dialog>
-      </article>                  
-        <nav id="top_menu">
+       <div id="header">Welcome to @Request["username"] page</div>
+      <table>          
+      <tr>
+        <td id="logo_home"><a href="home.cshtml"><img src="kntu.jpg" alt="kntu" dir="ltr" ></a></td>
+      </tr> 
+       <tr>
+        <td class="user"><a href="MainHome.cshtml"><img src="user.jpg" alt="user" dir="rtl" width="40" height="40">  </a> Hi, Dear  @Request["username"] </td>          
+        <td class="sabad"><img src="Sabad.png" alt="sabad" width="50" height="40"></td>
+      </tr> 
+      </table>                  
+      <nav id="top_menu">
         <ul>
                 <li><a class="topnave" target="_top" href="home.cshtml">خانه</a></li>
                 <li><a class="topnave" target="_top" href="#mahsolat">محصولات </a></li>
@@ -127,7 +73,8 @@ var uname = "";
                 <li><a class="topnave" target="_top" href="#tamasbama">تماس با ما </a></li>
             </ul>
         </nav>
-        <table>
+        
+      <table>
             <tr>              
                 <td id="video_table"><video src="Sony-Xperia-Z3-TV-Commercial.mp4" muted autoplay loop >Sony </video></td>
                 <td id="pdf_table">
@@ -154,9 +101,9 @@ var uname = "";
             </tr>
         </table>
 
-        <h1><a id="mahsolat"> محصولات </a></h1>
+      <h1><a id="mahsolat"> محصولات </a></h1>
 
-        <table>
+      <table>
             <tr><th id="goshi">تلفن همراه</th></tr>
             <tr id="section_goshi">
                 <td >                    
@@ -223,8 +170,9 @@ var uname = "";
                 <td><a href="#sabad"><img class="slidItem" alt="phie" src="img/sabad.jpg"></a></td>
             </tr>
         </table>
-        <br/>
-        <table>
+
+      <br/>
+      <table>
             <tr><th id="dorbin">دوربین عکاسی</th></tr>
             <tr id="section_dorbin">
                 
@@ -275,7 +223,7 @@ var uname = "";
             </tr>
         </table>
         <br/>
-        <table>
+      <table>
             <tr><th id="laptop">لپ تاپ</th></tr>
             <tr id="section_laptop">
                 <td> <a href="Default.cshtml">
@@ -431,10 +379,9 @@ var uname = "";
         آدرس : خیابان شریعتی - پل سید خندان - دانشگاه کامپیوتر
         <br/>
         </p>
-
-
         <br/>
         <br/>
       <footer id="the_footer"> Market Online - Thesis - Khaje Nasir Toosi Univercity - KNTU </footer>  
+
     </body>
 </html>
