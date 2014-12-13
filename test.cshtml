@@ -10,30 +10,47 @@
         <title></title>
     </head>
     <body>
-        <form method="post" action="">
-   <fieldset>
-     <legend>Create a New Account</legend>
-     <div>
-       <label>Username:</label>
-       <input name="username" type="text" size="50" />
-     </div>
-     <div>
-       <label>Password:</label>
-       <input name="password" type="password" size="50"/>
-     </div>
-     <div>
-       <label>Email:</label>
-       <input name="email" type="text" size="50"  />
-     </div>
-     <div>
-       <label>&nbsp;</label>
-       <input type="submit" value="Sign up for Market" class="submit" />
-     </div>
-   </fieldset>
-  </form>
-      <script type="text/javascript">
-            var x = document.forms[0].elements[1].name;
-            document.write(x);
-        </script>  
+<ul>
+
+</ul>
+<select onchange="selectIngredient(this);">
+ <option value="iphone6">iphone6</option>
+ <option value="iphone6plus">iphone6plus</option>
+ <option value="Samsung Galaxy Note4">Samsung Galaxy Note4</option>
+<option value="Samsung Galaxy S5">Samsung Galaxy S5</option>
+<option value="Huawei Ascend P7">Huawei Ascend P7</option>
+<option value="LG G Flex">LG G Flex</option>
+<option value="LG G3">LG G3</option>
+<option value="HTC One M8">HTC One M8</option>
+
+ ...
+</select>
+        <script type="text/javascript">
+            function selectIngredient(select)
+{
+  var option = select.options[select.selectedIndex];
+  var ul = select.parentNode.getElementsByTagName('ul')[0];
+     
+  var choices = ul.getElementsByTagName('input');
+  for (var i = 0; i < choices.length; i++)
+    if (choices[i].value == option.value)
+      return;
+     
+  var li = document.createElement('li');
+  var input = document.createElement('input');
+  var text = document.createTextNode(option.firstChild.data);
+     
+  input.type = 'hidden';
+  input.name = 'ingredients[]';
+  input.value = option.value;
+
+  li.appendChild(input);
+  li.appendChild(text);
+  li.setAttribute('onclick', 'this.parentNode.removeChild(this);');     
+    
+  ul.appendChild(li);
+}
+        </script>
+
     </body>
 </html>
