@@ -1,0 +1,46 @@
+﻿@{
+    //Request.Cookies["bascket"];
+    var user = Request["username"];
+    var db = Database.Open("Empty Site");
+    var userid = "";
+    var finduserid = "SELECT id FROM login WHERE username='"+user+"'";
+    foreach( var useritem in db.Query(finduserid)){
+        userid = useritem.id.ToString();
+    }
+    var sqlselectgoods = "SELECT PRODUCTID,PRODUCTNAME FROM PRODUCTS";
+    var sqlinsert2order = "INSERT INTO ORDERS (id) VALUES ('"+userid+"')";
+    List<SelectListItem> dropdownlist = new List<SelectListItem>();
+    
+    bool isSelect = false;
+    foreach(var item in db.Query(sqlselectgoods)){
+        isSelect = true;
+        dropdownlist.Add(new SelectListItem { 
+                Text = item.PRODUCTNAME,
+                Value = item.PRODUCTID.ToString(),
+                Selected = isSelect
+        });
+    }
+
+    
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+
+       
+    </head>
+    <body>
+      <!--  <select id="myselection">
+            <option value="m1">mob</option>
+            <option value="m2">mob2</option>
+            <option value="m3">mob3</option>
+        </select>-->
+        @Html.DropDownList("mylist",dropdownlist)
+
+        <input type="submit" value="Order" onclick="@db.Execute(sqlinsert2order)" />
+    </body>
+</html>
