@@ -1,7 +1,13 @@
 ﻿@{
     var yourValue = "";
    if(Request.Form["username"] != null){ 
-      yourValue = Request.Form["username"];} 
+      yourValue = Request.Form["username"];}
+   var db = Database.Open("Empty Site");
+   var productnumber = Request["myselection"];
+   var currentorder = Request["orderid"];
+
+   var sqlinsert2productorder = "INSERT INTO product_order (ORDERID,PRODUCTID) VALUES ('"+currentorder+"','"+productnumber+"')";
+   
 }
 
 <!DOCTYPE html>
@@ -12,9 +18,14 @@
         <title></title>
     </head>
     <body>
-       <form action="post">
+       <form method="post">
        <p></p>
-           <div>@Request["username"]</div>
+           @if (IsPost) {
+               db.Execute(sqlinsert2productorder);
+           }
+           <input type="submit"  value="add to product_order" />
+           <div>@Request["myselection"]</div>
+           <div>@Request["orderid"]</div>
        </form>
     </body>
 </html>
