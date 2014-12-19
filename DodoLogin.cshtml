@@ -24,7 +24,7 @@
                         selectQueryString = "SELECT password FROM login WHERE username = '" + uname+"' ";
                         foreach(var row in db.Query(selectQueryString)){
                         if(row.password==pword){
-                        <meta HTTP-EQUIV="REFRESH" content="0;url=Error?username=@uname">
+                        <meta HTTP-EQUIV="REFRESH" content="0;url=DataSelectTest?username=@uname">
                              }
                         else
                         { <p>@ErMwrong</p> }

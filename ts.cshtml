@@ -1,0 +1,110 @@
+﻿@{
+    
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+<!--          <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+           <title>First JQuery Test</title>
+        <link rel="stylesheet" href="jquery-ui.css">
+        <script type="text/javascript" src="jquery-1.11.1.js"></script>
+        <script type="text/javascript" src="jquery-ui.min.js"></script>
+        <script>
+            $(function () {
+
+                $("#goods").selectmenu();
+                $("#mobil").selectmenu();
+                //               
+                //                
+                $("#number").selectmenu();
+                //               .selectmenu("menuWidget")
+                //               .addClass("overflow");
+                $(function () {
+                    alert($("#goods").val());
+                    alert($("#mobil").val());
+                });
+
+            });
+            function GetData() {
+                $.ajax({
+                    // the URL for the request 
+                    url: "App_Data/packages/Empty Site.sdf",
+                    //whether this is a POST or GET request  
+                    type: "POST"
+                    //the type of data we expect back
+                    //function to call for success 
+                    //function to call on an error
+                    //code to run regardLess of success or failure
+
+                });
+            }
+
+        </script>
+        <style>
+    fieldset {
+      border: 0;
+    }
+    label {
+      display: block;
+      margin: 30px 0 0 0;
+    }
+    select {
+      width: 200px;
+    }
+    .overflow {
+      height: 200px;
+    }
+  </style>
+    </head>
+    <body>
+     <div class="demo">
+ 
+<form action="#">
+ 
+  <fieldset>
+    <label for="goods">Select a kind of Goods</label>
+    <select name="goods" id="goods">      
+      <option value="laptop">Laptop</option>
+      <option value="camera">Camera</option>
+      <option value="mobil">Mobil</option>
+    </select>
+ 
+    <label for="mobil">Select a kind of mobil</label>
+    <select name="mobil" id="mobil">
+      <optgroup label="iphone">
+        <option value="iPhone 6">iPhone 6</option>
+        <option value="iPhone 6 Plus">iPhone 6 Plus</option>
+      </optgroup>
+        <optgroup label="Samsung">
+        <option value="Samsung Galaxy Note4">Samsung Galaxy Note4</option>
+        <option value="Samsung Galaxy S5">Samsung Galaxy S5</option>
+      </optgroup>
+      <optgroup label="LG">
+        <option value="LG G Flex">LG G Flex</option>
+        <option value="LG G3">LG G3</option>
+      </optgroup>
+
+      <optgroup label="Other mobil">
+        <option value="HTC One M8">HTC One M8</option>
+        <option value="Huawei Ascend P7">Huawei Ascend P7</option>
+      </optgroup>
+    </select>
+ 
+    <label for="number">Select a number</label>
+    <select name="number" id="number">
+      <option>1</option>
+      <option selected="selected">2</option>
+      <option>3</option>
+      <option>4</option>
+    </select>
+  </fieldset>
+ 
+</form>
+ 
+</div>
+ 
+    </body>
+</html>

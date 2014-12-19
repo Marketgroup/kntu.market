@@ -6,51 +6,66 @@
 
 <html lang="en">
   <head>
-        <meta charset="utf-8" />
-        <title></title>
-    </head>
+        <meta charset="utf-8" />    
+  </head>
     <body>
-<ul>
+         <ul>
 
 </ul>
 <select onchange="selectIngredient(this);">
  <option value="iphone6">iphone6</option>
  <option value="iphone6plus">iphone6plus</option>
  <option value="Samsung Galaxy Note4">Samsung Galaxy Note4</option>
-<option value="Samsung Galaxy S5">Samsung Galaxy S5</option>
+<option value="Samsung Galaxy S5"> Samsung Galaxy S5</option>
 <option value="Huawei Ascend P7">Huawei Ascend P7</option>
 <option value="LG G Flex">LG G Flex</option>
 <option value="LG G3">LG G3</option>
 <option value="HTC One M8">HTC One M8</option>
-
  ...
-</select>
+</select>  
         <script type="text/javascript">
-            function selectIngredient(select)
-{
-  var option = select.options[select.selectedIndex];
-  var ul = select.parentNode.getElementsByTagName('ul')[0];
-     
-  var choices = ul.getElementsByTagName('input');
-  for (var i = 0; i < choices.length; i++)
-    if (choices[i].value == option.value)
-      return;
-     
-  var li = document.createElement('li');
-  var input = document.createElement('input');
-  var text = document.createTextNode(option.firstChild.data);
-     
-  input.type = 'hidden';
-  input.name = 'ingredients[]';
-  input.value = option.value;
+            var name = "mo";
+            var value = "10";
+            setcookie();
+            function selectIngredient(select) {
+                var option = select.options[select.selectedIndex];
+                var ul = select.parentNode.getElementsByTagName('ul')[0];
+                var choices = ul.getElementsByTagName('input');
+                for (var i = 0; i < choices.length; i++)
+                    if (choices[i].value == option.value)
+                        return;
 
-  li.appendChild(input);
-  li.appendChild(text);
-  li.setAttribute('onclick', 'this.parentNode.removeChild(this);');     
-    
-  ul.appendChild(li);
-}
+                var li = document.createElement('li');
+                var input = document.createElement('input');
+                var text = document.createTextNode(option.firstChild.data);
+
+                input.type = 'hidden';
+                input.name = 'ingredients[]';
+                input.value = option.value;
+
+                li.appendChild(input);
+                li.appendChild(text);
+                li.setAttribute('onclick', 'this.parentNode.removeChild(this);');
+
+                ul.appendChild(li);
+            }
         </script>
+         <button  onclick="myFunction();changePage();" >Continue</button>
+        <script>
+            function myFunction() {
+                alert("با تشکر  \n محصول شما انتخاب شد  ");
+            }
+            function changePage() {
+                var x;
+                if (confirm("برای ادمه فرآیند خرید دکمه اکی را انتخاب کنید ") == true) {
+                    x = "You pressed OK!";
+                    window.open("Default.cshtml");
+                } else {
+                    x = "You pressed Cancel!";
+                    window.open("MainHome.cshtml")
+                }
+            }
 
+        </script>
     </body>
 </html>
