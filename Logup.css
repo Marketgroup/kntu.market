@@ -1,11 +1,11 @@
 body{ text-align:center;  vertical-align: middle; font-family: 'Times New Roman';  font-size: 18pt; background-color: #1b8677;   background-image: url("c.jpg");}    
 form { margin: auto; width: 30em;}
-    h1{color: Purple;}
-    label{float:left; width: 8em; text-align: right; margin-right: 0.5em;}
-    fieldset{padding: 1em; border: 1px solid; width: 30em; color:black;}
-    legend{padding: 2px 4px; border: 1px solid; font-weight:bold;color: #3cdbc6;}
-    .validation-summary-errors{font-weight:bold; color: #323185 ; font-size: 15pt;}
-    input{color:Black; font-family:'Times New Roman'; background-color: #d3d3d3; font-size: 11pt; font-weight:bold;}
-    #header{ background-color: black; color: white;  text-align: center; padding: 5px; }
-   #footer { background-color:black; color:white; clear:both; text-align:center; padding:5px; }
+h1{color: Purple;}
+label{float:left; width: 8em; text-align: right; margin-right: 0.5em;}
+fieldset{padding: 1em; border: 1px solid; width: 30em; color:black;}
+legend{padding: 2px 4px; border: 1px solid; font-weight:bold;color: #3cdbc6;}
+.validation-summary-errors{font-weight:bold; color: #323185 ; font-size: 15pt;}
+input{color:Black; font-family:'Times New Roman'; background-color: #d3d3d3; font-size: 11pt; font-weight:bold;}
+#header{ background-color: black; color: white;  text-align: center; padding: 5px; }
+#footer { background-color:black; color:white; clear:both; text-align:center; padding:5px; }
     

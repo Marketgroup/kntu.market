@@ -12,12 +12,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style type="text/css">
+    body{ background-image: url("c.jpg") ; }
+    form { margin-left: 200px; margin-top: 100px; width: 0em;}
+    h1{}
+    label{float:left; width: 8em; text-align: right; margin-right: 0.5em;}
+    fieldset{direction: ltr ; padding: 1em; border: 1px solid; width: 30em; color:black;}
+    legend{padding: 2px 4px; border: 1px solid; font-weight:bold;color:black;}
+    .validation-summary-errors{font-weight:bold; color: #323185 ; font-size: 15pt;}
+    input{direction: ltr ; color:Black; font-family:'Times New Roman'; background-color: #d3d3d3; font-size: 11pt; font-weight:bold;}
+    
+    </style>
+   
 <meta charset="utf-8" />
 <title></title>
 </head>
 <body>
     <form method="post" id="mform">
         <h1>Login</h1>
+
             @if (IsPost && !uname.IsEmpty())
                     {
                         if(IsPost && !pword.IsEmpty()) {
@@ -34,17 +47,27 @@
             }
             @if(uname.IsEmpty() && IsPost )
                 {<p>@ErMemptyname</p>}
-           <p>
+           <fieldset>
+            <legend>ONLINE SHOPPING LOGIN</legend>
+            <div>
             <label for="username">Username:</label><br/>
             <input type="text" name="username" value="" />
-           </p>
-           <p>
+           </div>
+            <div>
            <label for="password">Password:</label><br/>
            <input type="password" name="password" value="" />
-           </p>
-           <p>
-           <input type="submit" value="Submit" />
-           </p>
+           </div>
+            <div>
+           <input type="submit" value="Login" onclick="guid()"/>
+           </div>
+            </fieldset>
 </form>
+     <script type="text/javascript">
+       
+         function guid(){
+                alert("شما به صفحه ی  انتخاب محصول هدایت می شوید ")
+            }
+        
+    </script>
 </body>
 </html>

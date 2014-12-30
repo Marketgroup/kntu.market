@@ -18,13 +18,13 @@
  </head>
  <body>
    <h1>Login List</h1>
-      @Html.ValidationSummary("Errors with your submission:")
+  <!--    @Html.ValidationSummary("Errors with your submission:")       -->
    <table>
        <thead>
            <tr>
                <th>Id</th>
                <th>UserName</th>
-               <th>PassWord</th>
+          <!--     <th>PassWord</th>    -->
        <th>email </th>
            </tr>
        </thead>
@@ -33,7 +33,7 @@
             <tr>
                <td>@row.id</td>
                    <td>@row.username</td>
-                   <td>@row.password</td>
+           <!--        <td>@row.password</td>   -->
                    <td>@row.email</td>  
             </tr>
            }

@@ -1,4 +1,114 @@
 ﻿@{
-    
-}
+    var user = Request["username"];
+    var db = Database.Open("Empty Site");
+    var userid = "";
+    var mygood =Request["myselection"];
+    var finduserid = "SELECT id FROM login WHERE username='"+user+"'";
+    foreach( var useritem in db.Query(finduserid)){
+        userid = useritem.id.ToString();
+    }
+     var sqlselectgoods = "SELECT PRODUCTID,PRODUCTNAME FROM products";
+     var sqlinsert2order = "INSERT INTO orders (id) VALUES ('" + userid + "') ";
+     var sqlselectcurrentorderid = "SELECT @@IDENTITY";
 
+}
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <link rel="stylesheet" href="jquery-ui.css">
+        <script type="text/javascript" src="jquery-1.11.1.js"></script>
+        <script type="text/javascript" src="jquery-ui.min.js"></script>
+  <script>
+            $(function () {
+
+                $("#goods").selectmenu();
+                $("#mobil").selectmenu();
+                //               
+                //                
+                $("#number").selectmenu();
+                //               .selectmenu("menuWidget")
+                //               .addClass("overflow");
+                $(function () {
+                    alert($("#goods").val());
+                    alert($("#mobil").val());
+                });
+
+            });
+            function GetData() {
+                $.ajax({
+                    // the URL for the request 
+                    url: "App_Data/packages/Empty Site.sdf",
+                    //whether this is a POST or GET request  
+                    type: "POST"
+                    //the type of data we expect back
+                    //function to call for success 
+                    //function to call on an error
+                    //code to run regardLess of success or failure
+
+                });
+            }
+
+        </script>
+               <style>
+    fieldset {
+      border: 0;
+    }
+    label {
+      display: block;
+      margin: 30px 0 0 0;
+    }
+    select {
+      width: 500px;
+    }
+    .overflow {
+      height: 200px;
+    }
+  </style>
+    </head>
+    <body>
+      <form method="post">
+        
+          <select name="myselection">
+            @foreach (var item in db.Query(sqlselectgoods)) {
+                <option value="@item.PRODUCTID">@item.PRODUCTNAME</option>
+            }
+        </select>
+        @if (IsPost) {
+        db.Execute(sqlinsert2order);
+        var item = db.QueryValue(sqlselectcurrentorderid);
+        <meta HTTP-EQUIV="REFRESH" content="0;url=Error?myselection=@Request["myselection"]&orderid=@item">
+        }
+        <input type="submit" value="Select" name="action"  />        
+          <p>
+          </p>
+          </form> 
+        
+        <form action="#">
+ 
+  <fieldset>
+   
+    <label for="mobil">Select a kind of mobil</label>
+    <select name="myselection" id="mobil">
+ @foreach (var item in db.Query(sqlselectgoods)) {
+                <option value="@item.PRODUCTID">@item.PRODUCTNAME</option>
+            }
+        </select>
+        @if (IsPost) {
+        db.Execute(sqlinsert2order);
+        var item = db.QueryValue(sqlselectcurrentorderid);
+        <meta HTTP-EQUIV="REFRESH" content="0;url=Error?myselection=@Request["myselection"]&orderid=@item">
+        }
+        <input type="submit" value="Select" name="action"  />        
+          <p>
+          </p>
+    
+ 
+  </fieldset>
+ 
+</form>
+              
+    </body>
+</html>

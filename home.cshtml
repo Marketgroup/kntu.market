@@ -1,6 +1,6 @@
 ﻿@{
 
-var uname = "";
+    var uname = "";
     var pword = "";
     var ErMemptyname = "The username field is EMPTY!";
     var ErMemptypass = "The password field is EMPTY!";
@@ -57,6 +57,11 @@ var uname = "";
             
             
         </style>
+        <script type="text/javascript">  
+             function tashakor(){
+                alert("برای انجام عملیات خرید لطفا لاگین بفرمایید . \n باتشکر");
+            }
+        </script>
         <meta charset="utf-8" />
         <title>Home Page</title>
     </head>
@@ -120,9 +125,9 @@ var uname = "";
         <ul>
                 <li><a class="topnave" target="_top" href="home.cshtml">خانه</a></li>
                 <li><a class="topnave" target="_top" href="#mahsolat">محصولات </a></li>
-                <li><a class="topnave" target="_top" href="Default.cshtml">سبد کالا </a></li>
+                <li><a class="topnave" target="_top" href="loginbuy.cshtml" onclick="tashakor()">خرید </a></li>
                 <li><a class="topnave" target="_top" href="#rahnama">راهنمای خرید </a> </li>
-                <li><a class="topnave" target="_top" href="listlogin.cshtml">ورود به سایت</a> </li>
+    <!--        <li><a class="topnave" target="_top" href="listlogin.cshtml">ورود به سایت</a> </li>  -->
                 <li><a class="topnave" target="_top" href="Logup.cshtml">عضویت در سایت </a></li>
                 <li><a class="topnave" target="_top" href="#tamasbama">تماس با ما </a></li>
             </ul>
@@ -160,43 +165,43 @@ var uname = "";
             <tr><th id="goshi">تلفن همراه</th></tr>
             <tr id="section_goshi">
                 <td >                    
-                        <a href="Default.cshtml">
+                        <a href="loginbuy.cshtml">
                            <img class="slideItem" alt="iPhone 6" src="img/mobil/Mobile-Phone-Apple-iPhone-6-16GB1dc713.jpg" >
                         </a>
                  </td>
                 <td>
-                        <a href="Default.cshtml">
+                        <a href="loginbuy.cshtml">
                             <img class="slideItem" alt="iPhone 6 Plus" src="img/mobil/Mobile-Phone-Apple-iPhone-6-Plus-16GB7c8c65.jpg" >
                         </a>
                     </td>
                 <td>
-                        <a href="Default.cshtml">
+                        <a href="loginbuy.cshtml">
                             <img class="slideItem" alt="Samsung Galaxy Note4" src="img/mobil/Mobile-Samsung-Galaxy-Note-4698824.jpg" >
                         </a>
                     </td>
                 <td>
-                        <a href="Default.cshtml">
+                        <a href="loginbuy.cshtml">
                             <img class="slideItem" alt="Samsung Galaxy S5" src="img/mobil/Mobile-Samsung-Galaxy-S5-16GB10fdef.jpg" >
                         </a>
                     </td>
                 <td>
-                         <a href="Default.cshtml">
+                         <a href="loginbuy.cshtml">
                             <img class="slideItem" alt="Huawei Ascend P7" src="img/mobil/Mobile-Huawei-Ascend-P7c9f99f.jpg" >
                         </a>
                     </td>
                 <td>
-                         <a href="Default.cshtml">
+                         <a href="loginbuy.cshtml">
                             <img class="slideItem" alt="LG G Flex" src="img/mobil/Mobile-LG-G-Flex-32GB37ad44.jpg" >
                         </a>
 
                     </td>
                 <td>
-                         <a href="Default.cshtml">
+                         <a href="loginbuy.cshtml">
                             <img class="slideItem" alt="LG G3" src="img/mobil/Mobile-LG-G3e1689c.jpg" >
                         </a>
                     </td>
                 <td>
-                         <a href="Default.cshtml">
+                         <a href="loginbuy.cshtml">
                             <img class="slideItem" alt="HTC One M8" src="img/mobil/Mobile-HTC-One-M8b3b691.jpg" >
                         </a>
                
@@ -228,28 +233,28 @@ var uname = "";
             <tr><th id="dorbin">دوربین عکاسی</th></tr>
             <tr id="section_dorbin">
                 
-                <td><a href="Default.cshtml">
+                <td><a href="loginbuy.cshtml">
                            <img class="slideItem" alt="sony" src="img/dorbin/1.jpg" >
                         </a></td>
-                <td><a href="Default.cshtml">
+                <td><a href="loginbuy.cshtml">
                             <img class="slideItem" alt="sony2" src="img/dorbin/2.jpg" >
                         </a></td>
-                <td> <a href="Default.cshtml">
+                <td> <a href="loginbuy.cshtml">
                             <img class="slideItem" alt="sony3" src="img/dorbin/3.jpg" >
                         </a></td>
-                <td><a href="Default.cshtml">
+                <td><a href="loginbuy.cshtml">
                             <img class="slideItem" alt="OLYMPUS" src="img/dorbin/4.jpg" >
                         </a></td>
-                <td><a href="Default.cshtml">
+                <td><a href="loginbuy.cshtml">
                             <img class="slideItem" alt="Canon" src="img/dorbin/5.jpg" >
                         </a></td>
-                <td><a href="Default.cshtml">
+                <td><a href="loginbuy.cshtml">
                             <img class="slideItem" alt="sony4" src="img/dorbin/6.jpg" >
                         </a></td>
-                <td><a href="Default.cshtml">
+                <td><a href="loginbuy.cshtml">
                             <img class="slideItem" alt="sony5" src="img/dorbin/7.jpg" >
                         </a></td>
-                <td><a href="Default.cshtml">
+                <td><a href="loginbuy.cshtml">
                             <img class="slideItem" alt="Canon2" src="img/dorbin/8.jpg" >
                         </a></td>
             </tr>
@@ -278,29 +283,30 @@ var uname = "";
         <table>
             <tr><th id="laptop">لپ تاپ</th></tr>
             <tr id="section_laptop">
-                <td> <a href="Default.cshtml">
+                <td> <a href="loginbuy.cshtml">
                            <img class="slideItem" alt="sony" src="img/laptop/1.jpg" >
                         </a></td>
-                <td> <a href="Default.cshtml">
+                <td> <a href="loginbuy.cshtml">
                             <img class="slideItem" alt="ASUS" src="img/laptop/2.jpg" >
                         </a></td>
                 <td>
-                        <a href="Default.cshtml">
+                        <a href="loginbuy.cshtml">
                             <img class="slideItem" alt="Lenovo" src="img/laptop/3.jpg" >
                         </a></td>
-                <td><a href="Default.cshtml">
+                <td>
+                        <a href="loginbuy.cshtml">
                             <img class="slideItem" alt="Dell" src="img/laptop/4.jpg" >
                         </a></td>
-                <td><a href="Default.cshtml">
+                <td><a href="loginbuy.cshtml">
                             <img class="slideItem" alt="Dell" src="img/laptop/5.jpg" >
                         </a></td>
-                <td><a href="Default.cshtml">
+                <td><a href="loginbuy.cshtml">
                             <img class="slideItem" alt="HP" src="img/laptop/6.jpg" >
                         </a></td>
-                <td> <a href="Default.cshtml">
+                <td> <a href="loginbuy.cshtml">
                             <img class="slideItem" alt="Lenovo" src="img/laptop/7.jpg" >
                         </a></td>
-                <td> <a href="Default.cshtml">
+                <td> <a href="loginbuy.cshtml">
                             <img class="slideItem" alt="Lenovo" src="img/laptop/8.jpg" >
                         </a></td>
             </tr>

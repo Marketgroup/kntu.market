@@ -48,29 +48,33 @@
            p{padding-right: 15px; padding-left: 10px;}
            
         </style>
+        <script type="text/javascript">
+             function piam() {
+            alert("برای انجام عملیات خرید باید مجددا لاگین بفرمایید . \n باتشکر");
+        }
+        </script>
         <meta charset="utf-8" />
-        <title>@Request["username"] Page</title>
+        <title>@Request["username"]'s Page</title>
     </head>
     <body>
-       <div id="header">Welcome to @Request["username"] page</div>
+       <div id="header">Welcome to @Request["username"]'s page</div>
       <table>          
       <tr>
         <td id="logo_home"><a href="home.cshtml"><img src="kntu.jpg" alt="kntu" dir="ltr" ></a></td>
       </tr> 
-       <tr>
-        <td class="user"><a href="MainHome.cshtml"><img src="user.jpg" alt="user" dir="rtl" width="40" height="40">  </a> Hi, Dear  @Request["username"] </td>          
-        <td class="sabad"><img src="Sabad.png" alt="sabad" width="50" height="40"></td>
+      <tr>
+        <td class="user"><a href="MainHome.cshtml" title="@Request["username"]"><img src="user.jpg" alt="user" dir="rtl" width="40" height="40">  </a> Hi, Dear  @Request["username"] </td>          
+        <td class="sabad"><a href="sabad.cshtml" title="محتوای سبد خرید شما"><img src="Sabad.png" alt="sabad" width="50" height="40"></a></td>
       </tr> 
       </table>                  
       <nav id="top_menu">
         <ul>
-                <li><a class="topnave" target="_top" href="home.cshtml">خانه</a></li>
+                
                 <li><a class="topnave" target="_top" href="#mahsolat">محصولات </a></li>
-                <li><a class="topnave" target="_top" href="Default.cshtml">سبد کالا </a></li>
+                <li><a class="topnave" target="_top" href="loginbuymainhome.cshtml" onclick="piam()">خرید </a></li>
                 <li><a class="topnave" target="_top" href="#rahnama">راهنمای خرید </a> </li>
-                <li><a class="topnave" target="_top" href="listlogin.cshtml">ورود به سایت</a> </li>
-                <li><a class="topnave" target="_top" href="Logup.cshtml">عضویت در سایت </a></li>
                 <li><a class="topnave" target="_top" href="#tamasbama">تماس با ما </a></li>
+                <li><a class="topnave" target="_top" href="home.cshtml"> خروج از سایت </a> </li>
             </ul>
         </nav>
         
@@ -88,7 +92,7 @@
                         <a href="pdf/Z1.pdf"> Sony Xperia Z1</a><br/>
                         <a href="pdf/Xperia_Z_Ultra.pdf"> Sony Xperia Z Ultra</a><br/>
                         <a href="pdf/XperiaTablet-S.pdf"> Sony Xperia Tablet S</a><br/>
-                    <h4>انواع دوربین ها </h4>
+                        <h4>انواع دوربین ها </h4>
                         <a href="pdf/DSCW90.pdf"> Sony Cyber-shot DSCw90</a><br/>
                         <a href="pdf/DSCT70.pdf"> Sony Cyber-shot DSCT70</a><br/>
                         <a href="pdf/DSCRX100.pdf"> Sony Cyber-shot DSCRX100</a><br/>
@@ -107,43 +111,43 @@
             <tr><th id="goshi">تلفن همراه</th></tr>
             <tr id="section_goshi">
                 <td >                    
-                        <a href="Default.cshtml">
+                        <a href="loginbuymainhome.cshtml">
                            <img class="slideItem" alt="iPhone 6" src="img/mobil/Mobile-Phone-Apple-iPhone-6-16GB1dc713.jpg" >
                         </a>
                  </td>
                 <td>
-                        <a href="Default.cshtml">
+                        <a href="loginbuymainhome.cshtml">
                             <img class="slideItem" alt="iPhone 6 Plus" src="img/mobil/Mobile-Phone-Apple-iPhone-6-Plus-16GB7c8c65.jpg" >
                         </a>
                     </td>
                 <td>
-                        <a href="Default.cshtml">
+                        <a href="loginbuymainhome.cshtml">
                             <img class="slideItem" alt="Samsung Galaxy Note4" src="img/mobil/Mobile-Samsung-Galaxy-Note-4698824.jpg" >
                         </a>
                     </td>
                 <td>
-                        <a href="Default.cshtml">
+                        <a href="loginbuymainhome.cshtml">
                             <img class="slideItem" alt="Samsung Galaxy S5" src="img/mobil/Mobile-Samsung-Galaxy-S5-16GB10fdef.jpg" >
                         </a>
                     </td>
                 <td>
-                         <a href="Default.cshtml">
+                         <a href="loginbuymainhome.cshtml">
                             <img class="slideItem" alt="Huawei Ascend P7" src="img/mobil/Mobile-Huawei-Ascend-P7c9f99f.jpg" >
                         </a>
                     </td>
                 <td>
-                         <a href="Default.cshtml">
+                         <a href="loginbuymainhome.cshtml">
                             <img class="slideItem" alt="LG G Flex" src="img/mobil/Mobile-LG-G-Flex-32GB37ad44.jpg" >
                         </a>
 
                     </td>
                 <td>
-                         <a href="Default.cshtml">
+                         <a href="loginbuymainhome.cshtml">
                             <img class="slideItem" alt="LG G3" src="img/mobil/Mobile-LG-G3e1689c.jpg" >
                         </a>
                     </td>
                 <td>
-                         <a href="Default.cshtml">
+                         <a href="loginbuymainhome.cshtml">
                             <img class="slideItem" alt="HTC One M8" src="img/mobil/Mobile-HTC-One-M8b3b691.jpg" >
                         </a>
                
@@ -176,28 +180,28 @@
             <tr><th id="dorbin">دوربین عکاسی</th></tr>
             <tr id="section_dorbin">
                 
-                <td><a href="Default.cshtml">
+                <td><a href="loginbuymainhome.cshtml">
                            <img class="slideItem" alt="sony" src="img/dorbin/1.jpg" >
                         </a></td>
-                <td><a href="Default.cshtml">
+                <td><a href="loginbuymainhome.cshtml">
                             <img class="slideItem" alt="sony2" src="img/dorbin/2.jpg" >
                         </a></td>
-                <td> <a href="Default.cshtml">
+                <td><a href="loginbuymainhome.cshtml">
                             <img class="slideItem" alt="sony3" src="img/dorbin/3.jpg" >
                         </a></td>
-                <td><a href="Default.cshtml">
+                <td><a href="loginbuymainhome.cshtml">
                             <img class="slideItem" alt="OLYMPUS" src="img/dorbin/4.jpg" >
                         </a></td>
-                <td><a href="Default.cshtml">
+                <td><a href="loginbuymainhome.cshtml">
                             <img class="slideItem" alt="Canon" src="img/dorbin/5.jpg" >
                         </a></td>
-                <td><a href="Default.cshtml">
+                <td><a href="loginbuymainhome.cshtml">
                             <img class="slideItem" alt="sony4" src="img/dorbin/6.jpg" >
                         </a></td>
-                <td><a href="Default.cshtml">
+                <td><a href="loginbuymainhome.cshtml">
                             <img class="slideItem" alt="sony5" src="img/dorbin/7.jpg" >
                         </a></td>
-                <td><a href="Default.cshtml">
+                <td><a href="loginbuymainhome.cshtml">
                             <img class="slideItem" alt="Canon2" src="img/dorbin/8.jpg" >
                         </a></td>
             </tr>
@@ -226,29 +230,29 @@
       <table>
             <tr><th id="laptop">لپ تاپ</th></tr>
             <tr id="section_laptop">
-                <td> <a href="Default.cshtml">
+                <td> <a href="loginbuymainhome.cshtml">
                            <img class="slideItem" alt="sony" src="img/laptop/1.jpg" >
                         </a></td>
-                <td> <a href="Default.cshtml">
+                <td> <a href="loginbuymainhome.cshtml">
                             <img class="slideItem" alt="ASUS" src="img/laptop/2.jpg" >
                         </a></td>
                 <td>
-                        <a href="Default.cshtml">
+                        <a href="loginbuymainhome.cshtml">
                             <img class="slideItem" alt="Lenovo" src="img/laptop/3.jpg" >
                         </a></td>
-                <td><a href="Default.cshtml">
+                <td><a href="loginbuymainhome.cshtml">
                             <img class="slideItem" alt="Dell" src="img/laptop/4.jpg" >
                         </a></td>
-                <td><a href="Default.cshtml">
+                <td><a href="loginbuymainhome.cshtml">
                             <img class="slideItem" alt="Dell" src="img/laptop/5.jpg" >
                         </a></td>
-                <td><a href="Default.cshtml">
+                <td><a href="loginbuymainhome.cshtml">
                             <img class="slideItem" alt="HP" src="img/laptop/6.jpg" >
                         </a></td>
-                <td> <a href="Default.cshtml">
+                <td> <a href="loginbuymainhome.cshtml">
                             <img class="slideItem" alt="Lenovo" src="img/laptop/7.jpg" >
                         </a></td>
-                <td> <a href="Default.cshtml">
+                <td> <a href="loginbuymainhome.cshtml">
                             <img class="slideItem" alt="Lenovo" src="img/laptop/8.jpg" >
                         </a></td>
             </tr>
