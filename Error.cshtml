@@ -1,12 +1,22 @@
 ﻿@{
     var yourValue = "";
    if(Request.Form["username"] != null){ 
+<<<<<<< HEAD
       yourValue = Request.Form["username"];} 
         var db = Database.Open("Empty Site");
         var productnumber = Request["myselection"];
         var currentorder = Request["orderid"];
         var sqlinsert2productorder = "INSERT INTO product_order (ORDERID,PRODUCTID) VALUES ('"+currentorder+"','"+productnumber+"')";
 
+=======
+      yourValue = Request.Form["username"];}
+   var db = Database.Open("Empty Site");
+   var productnumber = Request["myselection"];
+   var currentorder = Request["orderid"];
+
+   var sqlinsert2productorder = "INSERT INTO product_order (ORDERID,PRODUCTID) VALUES ('"+currentorder+"','"+productnumber+"')";
+   
+>>>>>>> efa57f97d4041af4eeb5e5cd51a1df7510bd05b3
 }
 
 <!DOCTYPE html>
@@ -19,6 +29,7 @@
     <body>
        <form method="post">
        <p></p>
+<<<<<<< HEAD
            
             @if (IsPost) {
              db.Execute(sqlinsert2productorder);
@@ -26,6 +37,14 @@
              <input type="submit" value="add to product_order" />
              <div>@Request["myselection"]</div>
              <div>@Request["orderid"]</div>
+=======
+           @if (IsPost) {
+               db.Execute(sqlinsert2productorder);
+           }
+           <input type="submit"  value="add to product_order" />
+           <div>@Request["myselection"]</div>
+           <div>@Request["orderid"]</div>
+>>>>>>> efa57f97d4041af4eeb5e5cd51a1df7510bd05b3
        </form>
     </body>
 </html>
