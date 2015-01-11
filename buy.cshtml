@@ -19,23 +19,40 @@
 
 <html lang="en">
     <head>
+         <link rel="stylesheet" type="text/css" href="logup.css"/>
         <meta charset="utf-8" />
-        <title></title>
+        <title>Buy's Page</title>
 
        
     </head>
     <body>
+           <div id="toplogo">
+          <div>
+
+             <a href="Default.cshtml">
+                 <img src="kntu.jpg" alt="kntu" width="82" height="82">
+             </a>
+          </div>
+        </div>
+ 
+        <br/>
+       <div id="header">Welcome to Shopping's Page</div>         
+        <br/>
+        <br/> 
+        <p> After select the product , Please press button </p>
+
       <form method="post">
         
           <select name="myselection">
             @foreach (var item in db.Query(sqlselectgoods)) {
                 <option value="@item.PRODUCTID">@item.PRODUCTNAME</option>
+             
             }
         </select>
         @if (IsPost) {
         db.Execute(sqlinsert2order);
         var item = db.QueryValue(sqlselectcurrentorderid);
-        <meta HTTP-EQUIV="REFRESH" content="0;url=Error?myselection=@Request["myselection"]&orderid=@item">
+        <meta HTTP-EQUIV="REFRESH" content="0;url=order?myselection=@Request["myselection"]&orderid=@item">
         }
 
         <input type="submit" value="Select" name="action"  />
@@ -43,6 +60,11 @@
           <p>
 
           </p>
-          </form>       
+          </form>  
+        
+          <br/>
+        <br/>
+              
+  <div id="footer"> Khaje Nasir Toosi Univercity (KNTU) </div>     
     </body>
 </html>

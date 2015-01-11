@@ -1,15 +1,66 @@
 ﻿@{
-    
+   
+   var db = Database.Open("Empty Site");
+   var selectQuerylogin = "SELECT username FROM login WHERE ";
+   var unionQuery= "SELECT login.username, product_order.PRODUCTID, products.PRODUCTNAME FROM  login,orders,product_order,products WHERE login.id=orders.id and orders.ORDERID=product_order.ORDERID and product_order.PRODUCTID=products.PRODUCTID ";
+
 }
 
 <!DOCTYPE html>
 
 <html lang="en">
     <head>
+        <style type="text/css">
+          body{ text-align:center; font-family: 'Times New Roman'; background-image: url("c.jpg");}    
+
+           #header{ background-color: black; color: white;  text-align: center; padding: 5px; }
+           #footer { background-color:black; color:white; clear:both; text-align:center; padding:5px; }
+           table{border: solid 1px #bbbbbb; border-collapse: collapse; padding: 2px; margin-left: 850px;}
+           th, td {border: solid 1px #bbbbbb; border-collapse: collapse; padding: 2px;}
+        </style>
         <meta charset="utf-8" />
-        <title></title>
+        <title>Sabad's Page</title>
     </head>
-    <body>
+    <body>        
+        <div id="toplogo">
+          <div>
+
+             <a href="Default.cshtml">
+                 <img src="kntu.jpg" alt="kntu" width="82" height="82">
+             </a>
+          </div>
+        </div>
         
+        <br/>
+       <div id="header">Welcome to Sabad's Page</div>         
+        <br/>
+        <br/>   
+
+          <h1>Sabad's Page</h1>
+
+   <table>
+       <thead>
+           <tr>
+               <th> User Name   </th>
+               <th> Product's ID </th>
+               <th>Product's Name</th>
+           </tr>
+       </thead>
+       <tbody>
+           @foreach(var row in db.Query(unionQuery)){
+            <tr>
+               <td>@row.username</td>
+               <td>@row.PRODUCTID</td>
+               <td>@row.PRODUCTNAME</td>
+            </tr>
+           }
+       </tbody>
+   </table>
+
+
+        <br/>
+        <br/>
+              
+  <div id="footer"> Khaje Nasir Toosi Univercity (KNTU) </div>
     </body>
 </html>

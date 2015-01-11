@@ -12,24 +12,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style type="text/css">
-    body{ background-image: url("c.jpg") ; }
-    form { margin-left: 200px; margin-top: 100px; width: 0em;}
-    h1{}
-    label{float:left; width: 8em; text-align: right; margin-right: 0.5em;}
-    fieldset{direction: ltr ; padding: 1em; border: 1px solid; width: 30em; color:black;}
-    legend{padding: 2px 4px; border: 1px solid; font-weight:bold;color:black;}
-    .validation-summary-errors{font-weight:bold; color: #323185 ; font-size: 15pt;}
-    input{direction: ltr ; color:Black; font-family:'Times New Roman'; background-color: #d3d3d3; font-size: 11pt; font-weight:bold;}
-    
-    </style>
-   
+     <link rel="stylesheet" type="text/css" href="logup.css"/>
+
 <meta charset="utf-8" />
 <title></title>
 </head>
 <body>
+            <div id="toplogo">
+          <div>
+
+             <a href="Default.cshtml">
+                 <img src="kntu.jpg" alt="kntu" width="82" height="82">
+             </a>
+          </div>
+        </div>
+ 
+        <br/>
+       <div id="header">Welcome to Login's Page</div>         
+        <br/>
+
     <form method="post" id="mform">
-        <h1>Login</h1>
+        <h1>You have to login again after that you guide to buy's page . Thanks</h1>
 
             @if (IsPost && !uname.IsEmpty())
                     {
@@ -69,5 +72,10 @@
             }
         
     </script>
+
+     <br/>
+     <br/>
+              
+  <div id="footer"> Khaje Nasir Toosi Univercity (KNTU) </div>
 </body>
 </html>

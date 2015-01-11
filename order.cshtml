@@ -1,0 +1,117 @@
+﻿@{
+    var yourValue = "";
+   if(Request.Form["username"] != null){ 
+
+      yourValue = Request.Form["username"];} 
+        var db = Database.Open("Empty Site");
+        var productnumber = Request["myselection"];
+        var currentorder = Request["orderid"];
+        var sqlinsert2productorder = "INSERT INTO product_order (ORDERID,PRODUCTID) VALUES ('"+currentorder+"','"+productnumber+"')";
+        
+        var selectQueryString = "SELECT * FROM products ORDER BY PRODUCTID";
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+         <style type="text/css">
+             body{ text-align:center; background-image: url("c.jpg"); font-family: 'Times New Roman';}
+            h1{color: Black;}
+             input{color:Black; font-family:'Times New Roman'; background-color: #d3d3d3; font-size: 11pt; font-weight:bold;}
+            #header{ background-color: black; color: white;  text-align: center; padding: 5px; }
+            #footer { background-color:black; color:white; clear:both; text-align:center; padding:5px; }
+             table {
+                 margin-left: 800px;
+         border: solid 1px #bbbbbb;
+         text-align: center;
+         vertical-align: middle;
+         border-collapse: collapse;
+         padding: 2px;
+       }
+             th, td{border: solid 1px #bbbbbb;
+         text-align: center;
+         vertical-align: middle;
+         border-collapse: collapse;
+         padding: 2px;}
+         </style>
+        <meta charset="utf-8" />
+        <title>Show your's Order</title>
+    </head>
+    <body>
+        
+        <div id="toplogo">
+          <div>
+
+             <a href="Default.cshtml">
+                 <img src="kntu.jpg" alt="kntu" width="82" height="82">
+             </a>
+          </div>
+        </div>
+ 
+        <br/>
+       <div id="header">Welcome to Sign up Page</div>         
+        <br/>
+        <br/>  
+        <h1>Product's List</h1> 
+        <p> This Table show you, what kind of products is availabe </p>
+        <p> The number of products is in table </p>
+        <p> You can see your order's number in under of table </p>
+        <table>
+       <thead>
+           <tr>
+               <th>Id Product</th>
+               <th>Product's Name</th>
+
+           </tr>
+       </thead>
+       <tbody>
+           @foreach(var row in db.Query(selectQueryString)){
+            <tr>
+               <td>@row.PRODUCTID</td>
+               <td>@row.PRODUCTNAME</td>
+
+            </tr>
+           }
+       </tbody>
+   </table>
+
+
+       <form method="post">
+       <p></p>
+
+           
+            @if (IsPost) {
+             db.Execute(sqlinsert2productorder);
+                 }
+
+            If you're sure that your's order is correct , Please Press <i>add to product_order</i> button 
+           <br>
+             <input type="submit" value="add to product_order" />
+           <br>
+           <div><label><b>This number show you which of product's list select :</b></label></div> 
+            <div>@Request["myselection"]</div>
+           <br>
+           <div><label><b>This is your order's number so you have to know it : </b></label></div>
+             <div>@Request["orderid"]</div>
+         
+
+         
+       </form>
+        <p> Go to Sabad's Page</p>
+        <br>
+        <input type="button" value="sabad's Page"  onclick="tashakor();gopage()"/>
+        <script type="text/javascript">
+             function gopage(){
+               window.open("sabad.cshtml");
+            }
+             function tashakor(){
+                alert("از خرید شما سپاسگذاریم  . \n باتشکر");
+            }
+        </script>
+        <br/>
+        <br/>
+              
+  <div id="footer"> Khaje Nasir Toosi Univercity (KNTU) </div>
+    </body>
+</html>

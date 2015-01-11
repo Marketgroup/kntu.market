@@ -17,7 +17,7 @@
                 "VALUES (@0, @1, @2)";
           db.Execute(insertQuery, username, password, email);
           // Display the page that lists logins.
-          Response.Redirect("~/home");
+          Response.Redirect("~/Default");
         }
    }
 }
@@ -35,7 +35,7 @@
         <div id="toplogo">
           <div>
 
-             <a href="home.cshtml">
+             <a href="Default.cshtml">
                  <img src="kntu.jpg" alt="kntu" width="82" height="82">
              </a>
           </div>
